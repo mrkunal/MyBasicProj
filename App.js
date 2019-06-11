@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, View, Text, StyleSheet, ScrollView, Button } from 'react-native';
-
+import {Home} from './screens/Home';
 
 const myStyle = StyleSheet.create({
   myBasicComp: {
@@ -22,51 +22,19 @@ const myStyle = StyleSheet.create({
 
 });
 
-export default class MyBasicApp extends Component {
 
-
+export default class App extends Component{
+  
   constructor(props) {
     super(props)
-    this.state = { btnPressedState: "Not Pressed",times:0 }
-
-    setInterval(() => {
-
-      this.setState(prevState => ({ times: prevState.times  }
-     //   { btnPressedState: "String_3" }        
-      ))
-    }, 10000);
-  }
-
-  onMyBtnPressed = () => {
-    this.state.times=this.state.times+1;
-    if (this.state.times % 2 == 0) {
-       this.setState({ btnPressedState: "Button Pressed" })
-    }
-    else {
-      this.setState({ btnPressedState: "Not Pressed" })
-    }
   }
 
 
   render() {
-    return (<View style={myStyle.myBasicComp}>
-
-      <Text style={{ width: 50, height: 50 }}>Hello World {this.state.times} </Text>
-      <Button title={this.state.btnPressedState} onPress={this.onMyBtnPressed}/>
+    return <View style={{ alignItems: "center" }}>
+      <Home myName="How Are You" />
     </View>
-    );
+    
 
+    }
   }
-}
-
-export class MyBlueComp extends Component {
-
-  render() {
-    return (<View style={myStyle.myBlueComp}>
-      <Text style={myStyle.myTextColor}>Hello World in Gold</Text>
-
-    </View>
-    );
-  }
-
-}
